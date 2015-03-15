@@ -1,0 +1,22 @@
+doctype html
+html(ng-app="BookmarksManagerApp" lang="en" ng-csp)
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no")
+    title Bookmark Manager
+    link(rel="stylesheet", href="app/dist/app.css")
+  body(ng-controller="MainCtrl")
+    .app.app-body
+      .column.column-sidebar
+        nav
+          li: a(ui-sref="bookmarks.list") Bookmarks
+      .column.column-main
+        .top-bar
+          input(type="search", ng-model="search")
+        .app-wrapper
+          .app-wrapper-inner
+            ui-view
+    script(type="text/javascript", src="app/scripts/vendor/angular/angular.js")
+    script(type="text/javascript", src="app/scripts/vendor/ui-router/release/angular-ui-router.js")
+    script(type="text/javascript", src="app/scripts/vendor/lodash/lodash.js")
+    script(type="text/javascript", src="app/scripts/app.js") 

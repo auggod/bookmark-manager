@@ -1,0 +1,232 @@
+// Events
+
+.offset-space
+  height: 360px
+  @media(min-width: 760px)
+    height: 240px
+
+#eventPage
+  animation scaleUp 200ms $ease-in-quad
+  transform-origin: center
+  background-color: #fff
+  margin: 20px 0 20px 0
+  padding: 0
+  box-shadow: 0px 1px 1px #bbb
+
+#event .toolbar
+  right: 0
+
+#event
+  padding: 0
+  position: relative
+  display: block
+  overflow: hidden
+
+.tracks
+  display: block
+  margin: 0 auto 0 auto
+  padding: 20px 0 20px 0
+  width: 80%
+  h2
+    color: #fff
+    text-shadow: 0 0px 1px #333
+  h3
+    font-size: 2.5em
+    letter-spacing: 2px
+    width: 80%
+    padding: 0
+    text-indent: 70px
+    font-weight: 100
+    color: #555
+    line-height: 50px
+    background: url("/img/list.png")
+    background-repeat: no-repeat
+    height: 50px
+    margin: 0
+  a
+    white-space: nowrap
+
+#event 
+  .items
+    position: absolute
+    margin-top: -10px
+    width: auto
+    color: #fff
+    background: rgba(0, 0, 0, .85)
+    z-index: 100
+    right: 20px
+    left: 20px
+    border-radius: 3px
+  .item
+    line-height: 30px
+  .fileUpload
+    position: absolute
+    z-index: 50
+    left: 20px
+    bottom: 10px
+    .btn-text
+      padding: 0 10px;
+  .act
+    font-weight: normal
+    color: #fff
+    padding: .5rem 0
+    margin: 0
+  .venue, .type
+    font-size: 1.4rem
+    color: #fff
+  img
+    width: 100%
+  .curtain
+    width: 100%
+    left: 0
+    top: 0
+    bottom: 4px
+    position: absolute
+    z-index: 2
+    @media(min-width:760px)
+      max-width: 40%
+  .curtainBlur-image
+    display: none
+    width: 100%
+    left: 0
+    top: 0
+    bottom: 0
+    padding: 0
+    position: absolute
+    overflow: hidden
+    z-index: -1
+    @media(min-width:760px)
+      display: block
+  .curtainContent
+    background: rgba(0, 0, 0, .2)
+    padding: 20px
+    @media(min-width:760px)
+      padding: 20px 100px 20px 20px
+    height: 100%
+  .description, .type
+    color: #fff
+  .type
+    margin: 1rem 0
+  .dropdown-menu
+    border-radius: 3px
+    min-width: 200px
+    left: 0
+    padding: 10px
+    img
+      width auto
+      margin-left 20%
+    h4 small
+      width: 100%
+      float: left
+      padding: 0
+  .datetime
+    position: absolute
+    top: 0
+    right: 10px
+    z-index: 100
+  .clock
+    user-select: none
+    font-weight: 500
+    color: #f0f0f0
+    margin: 1rem 0
+    padding: 0.5rem
+    border-radius: 2px
+    position: relative
+    display: inline-block
+    background-color: #161616
+    time
+      padding: 0 5px
+    .divider
+      position:absolute
+      left:50%
+      top:0%
+      bottom:0%
+      border-left:1px solid rgba(0, 0, 0, .1)
+
+.event
+  animation pop 300ms $ease-in-out-quad
+  background #fff
+  display inline-block
+  box-shadow: 0 1px 1px #bbb
+  margin 20px 10px
+  img
+    width: 100%
+
+.event
+  .datetime
+    position: absolute
+    margin: 0
+    right: 10px
+    top: 10px
+  .title, .act
+    width: 100%
+    display: block
+    line-height: 1
+    color: #333
+    padding: 5px 5px
+  .title  
+    font-size: 1rem
+  .act
+    font-size: 1.4rem
+  .image
+    max-width 100%
+  img
+    overflow hidden
+    vertical-align bottom
+  x:-moz-any-link
+    max-width: 100%
+  a
+    text-decoration: none
+    display: inline-block
+    overflow: hidden
+    position: relative
+    max-width: 100%
+
+#events, #explore
+  .toolbar
+    background: rgba(255, 255, 255, .95)
+    border-bottom: 1px solid #bbb
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    padding: 10px
+    z-index: 1
+    legend
+      font-size: 1rem
+      margin: 0
+      line-height: 1
+    label
+      font-size: .8rem
+  .toolbar.scrolled
+    position: fixed
+    top: 60px
+
+.add-event
+  color: #333
+  background: white
+  padding: 0 10px 0 10px
+
+.addTrack
+  input
+    color: #333
+  .items
+    background: rgba(0, 0, 0, .8)
+    position: absolute
+    color: #fff
+    max-height: 262px
+    overflow-y: scroll
+  li.item
+    line-height: 30px
+    color: #fff
+/* Form Styles */
+
+select.eventType
+  float: left
+  display: block
+
+.eventsList
+  .image
+    height: 60px
+    width: 60px
+

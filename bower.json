@@ -1,0 +1,18 @@
+{
+  "name": "bookmark-manager",
+  "version": "0.0.1",
+  "authors": [
+    "Augustin Godiscal <dev@auggod.io>"
+  ],
+  "description": "Bookmark manager for auggod",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

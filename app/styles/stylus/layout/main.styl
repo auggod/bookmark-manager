@@ -1,0 +1,84 @@
+html, body
+  min-height 100%
+  background #fff
+  
+body
+  background main-bg-color
+  font font
+
+img
+  max-width 100%
+
+a
+  color inherit
+
+.content-body
+  margin: 0 10px
+
+::selection
+  background #FEEEA7
+  color #fff
+
+@keyframes slideFromTop
+  0%
+    opacity 0
+    transform translateY(-100%)
+  90%
+    transform translateY(1%)
+  100%
+    opacity 1
+    transform translateY(0%)
+
+nav
+  animation slideFromTop 200ms $ease-in-out-quad
+
+nav > li
+  display block
+  list-style none
+  //text-transform: uppercase
+  text-align center
+  @media(min-width:768px)
+    text-align right
+
+nav > li.divider
+  height auto
+  width 100%
+  background rgba(0 0 0 .1)
+
+nav > li.divider span
+  font-size 1.2rem
+  text-align: right
+  line-height 30px
+  width 100%
+  padding 0 20px
+  display block
+  color rgba(255 255 255 .5)
+
+nav > li.divider span.empty
+  height 5px
+
+nav > li > a
+  display block
+  padding 0 20px
+  font-size 1.1rem
+  letter-spacing 1px
+  color #fff
+  transition background 200ms @ease-in-out-quad
+  line-height 30px
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+nav > li > a:hover
+  background rgba(0 0 0 .1)
+
+section#bookmarks
+  li.bookmark
+    list-style-type none
+    a.title
+      line-height 30px
+      display block
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+    

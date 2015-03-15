@@ -1,0 +1,3 @@
+section#bookmarks
+  li.bookmark(data-ng-repeat="bookmark in bookmarks | filter:search")
+    a.title(ng-href="{{bookmark.url}}") {{bookmark.title}}

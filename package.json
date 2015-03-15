@@ -1,0 +1,20 @@
+{
+  "name": "bookmarks-manager",
+  "description": "Bookmark manager chrome extension",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Augustin Godiscal",
+    "email": "dev@auggod.io"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.5.0",
+    "gulp": "latest",
+    "gulp-jade": "^0.11.0",
+    "gulp-livereload": "^3.5.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-stylus": "^2.0.0",
+    "nib": "^1.1.0",
+    "should": "^5.0.1"
+  }
+}

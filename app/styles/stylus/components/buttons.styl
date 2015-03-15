@@ -1,0 +1,181 @@
+.fileUpload
+  position: relative
+  overflow: hidden
+  padding: 0
+  margin: 0
+  cursor: pointer
+
+.fileUpload input.upload
+  position: absolute
+  cursor: pointer
+  top: 0
+  right: 0
+  margin: 0
+  padding: 10px
+  opacity: 0
+
+button, .btn
+  cursor: pointer
+  display: inline-block
+  font-family font
+  font-weight: normal
+  font-size: 1rem
+  position: relative
+  text-align: center
+  user-select: none
+  //margin: 1rem
+  line-height: 1.4
+  border: none
+  border-radius: 4px
+  outline: 0
+  border-width: 0
+  padding: 10px
+
+.btn-group > .btn
+  display: inline-block
+
+.btn-sm
+  font-size: .9rem
+  padding: 3px
+
+.file-upload-button-bar input
+  position: absolute
+  top: 0
+  right: 0
+  margin: 0
+  border: solid transparent
+  opacity: 0
+  cursor: pointer
+
+.btn-file-upload
+  height: auto
+  padding-top: 10px
+  padding-bottom: 10px
+  position: relative
+  overflow: visible
+  overflow: hidden
+
+// Buttons colors
+
+.btn-light
+  background: rgba(255, 255, 255, 1)
+  color: #333
+  &:hover
+    background: rgba(255, 255, 255, 0.8)
+
+.btn-light.btn-transparent
+  background: rgba(255, 255, 255, 0)
+  border: 2px solid #fff
+  color: #fff
+  &:hover, &:active
+    background: rgba(255, 255, 255, 1)
+    color: #333
+
+.btn-default
+  background: rgba(0, 0, 0, 1)
+  color: #fff
+  border: 2px solid rgba(0, 0, 0, 1)
+  &:hover, &:active
+    background: rgba(0, 0, 0, .8)
+    border-color: transparent
+
+.btn-default.btn-transparent
+  background: rgba(0, 0, 0, 0)
+  color: #333
+  &:hover, &:active
+    background: rgba(0, 0, 0, 1)
+    color: #fff
+    border-color: transparent
+
+.btn-danger
+  background: danger-color(1)
+  border: 2px solid danger-color(1)
+  color: #fff
+  &:hover, &:active
+    background: danger-color(.8)
+    border-color: transparent
+
+.btn-danger.btn-transparent
+  background: transparent
+  color: danger-color(1)
+  &:hover, &:active
+    background: danger-color(1)
+    border-color: transparent
+    color: #fff
+
+.btn-disabled
+  cursor: not-allowed
+  background: #f0f0f0
+
+.btn-success
+  background: rgb(126, 211, 33)
+  border: 2px solid rgb(126, 211, 33)
+  color: #fff
+  &:hover, &:active
+    background: rgb(152, 220, 78)
+    border-color: transparent
+
+.btn-success.btn-transparent
+  background: rgba(126, 211, 33, 0)
+  color: rgb(126, 211, 33)
+  &:hover, &:active
+    background: rgba(152, 220, 78, 1)
+    border-color: transparent
+    color: #fff
+
+.btn-sc
+  background-color: #F76700
+  color: #fff
+  text-shadow: none
+  box-shadow: none
+  border: none
+  border-color: #F76700
+  &:hover
+    background: rgba(255, 255, 255, 0.2)
+
+// Buttons sizes
+
+//@media (min-width : 760px)
+.btn-large
+  font-size: 2rem
+  padding: 1rem
+  border-radius: 6px
+  font-weight: 500
+  margin: 2rem 0
+
+.btn-center
+  display: block!important
+  width: 50%!important
+  left: 25%
+
+.btn-small
+  font-size: .9rem
+  padding: .1rem
+
+.btn-rounded
+  border-radius: 30px
+
+.datepicker
+  .dropdown-menu
+    width: 300px
+    height: 330px
+    overflow: auto
+    margin: auto
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+  .btn-default
+    background: #fff
+    color: #333
+    padding: 7px
+    border 1px solid transparent
+  .btn-default:active, .btn-default:hover
+    background: #333
+    border 1px solid rgba(0, 0, 0, 0)
+    color: #fff
+  .btn-info
+    color #fff
+    background-color #5bc0de
+    border-color #46b8da

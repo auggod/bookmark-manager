@@ -1,0 +1,140 @@
+input[type="search"]
+  -webkit-appearance: textfield
+
+input[type="password"], 
+input[type="url"], 
+tags-input .tags, 
+input[type="email"], 
+input[type="text"], 
+input[type="datetime"], 
+input[type="time"], 
+input[type="search"], 
+textarea
+  background: transparent
+  width: 100%
+  height: auto
+  border: 2px solid rgba(0, 0, 0, .1)
+  border-radius: 3px
+  margin: .6rem 0
+  padding: 6px 0 6px 6px
+  font-size: 10px
+  font-size: 1rem
+  font-family font
+  display: block
+  color: #555
+  transition: all 0.2s linear
+  position: relative
+  &::-webkit-input-placeholder
+    color: #999999
+  &:-moz-placeholder
+    color: #999999
+  &:focus
+    border: 2px solid rgba(0 0 0 .6)
+    outline: none
+
+input[type="search"]
+  color: #fff
+  border-radius: 40px
+  border: none
+  border-radius: 0
+  margin: 0
+  height: 60px
+  padding: 0 20px
+  &:focus
+    border: none
+    box-shadow: 0 0 1px #000
+    outline: none
+
+input[type="radio"] + label
+  display: inline-block
+
+button.time.in-context
+  border: 2px dashed rgba(88, 165, 255, 0.80)
+  padding: 5px
+  margin: -5px
+  width: 75px
+  height: 75px
+  &:focus
+    border: none
+
+input.in-context
+  display: block
+  margin: 0
+  box-shadow: none
+  background: none
+  border: 2px dashed rgba(88, 165, 255, 0.80)
+  border-radius: 4px
+  -webkit-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
+  &:focus
+    border: 2px solid #2392f3
+    box-shadow: 0 0 4px #2392f3, inset 0 0 4px #2392f3
+    background: rgba(255, 255, 255, .05)
+    outline: 0
+
+.artist-header .in-context
+  margin: 0 auto
+  text-align: center
+  color: #fff
+
+.in-context.h1
+  color: #fff
+  font-weight: 700
+  font-size 26px
+  font-size 2.6rem
+  margin-bottom: 20px
+  line-height 1
+  font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+textarea
+  width: 100%
+  height: 100px
+  resize: vertical
+
+fieldset
+  margin: 10px 0
+  margin: 1rem 0
+
+legend
+  font-size: 1.4rem
+  margin: 10px 0
+  margin: 1rem 0
+  line-height: 1.4
+  color: #333
+  width: 100%
+  font-weight: 500
+
+label
+  font font
+  font-size: .9rem
+  margin: 0
+  line-height: 1
+  color: #444
+
+select
+  display: block
+  
+.dropdown input
+  margin: 20px auto
+
+.center
+  margin: 0 auto 0 auto
+  display: block
+
+.error-message
+  display inline
+  margin-left 10px
+
+.error-message, .stars
+  margin-left 6px
+  color #dd3333
+
+.cancel
+  font-weight: bold
+  color: #333
+
+.datepicker button
+  margin: 0
+
+typeahead
+  display block

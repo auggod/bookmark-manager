@@ -1,0 +1,102 @@
+.tracks li
+  display: inline-block
+  width: 100%
+
+.player
+  overflow: hidden
+  margin-bottom: 20px
+  background: #fff
+  border: 1px solid #333
+  height: 60px
+  max-width: 100%
+  border-radius: 4px
+  animation: player-anim 300ms 1
+  -webkit-animation: player-anim 300ms 1
+
+.player a
+  color: #333
+
+@keyframes player-anim
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@-webkit-keyframes player-anim
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+.player-controls
+  margin: 6px
+  float: left
+  position: relative
+  display: block
+
+.player-button
+  font-size: 42px
+  margin: 3px
+  color: #fff
+  z-index: 10
+  position: absolute
+  opacity: 0.5
+
+.player-button:hover
+  transition: all 0.3s ease-out
+  opacity: 1
+
+.player-button:active
+  opacity: 0.5
+
+.player-artwork
+  overflow: hidden
+  width: 48px
+  height: 48px
+  border-radius: 100px
+
+.player-data
+  margin: 14px 0
+  display: block
+  position: relative
+  span
+    display: block
+
+.artist-name, .track-title, .track-time
+  font-weight: 400
+  line-height: 60px
+  letter-spacing: 1px
+
+.track-infos li
+  width: 30%
+  display: inline-block
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+
+.player-actions
+  float: right
+  display: block
+
+.player-actions span
+  height: 58px
+  width: 60px
+  display: inline-block
+  background: #333
+
+.player-actions
+  span.last
+    border-radius: 0px 4px 4px 0px
+
+.player
+  .icon
+    margin: 0
+    width: 60px
+    height: 60px
+    padding: 20px
+    float: left
+    fill: #333
+
+.player
+  .icon-white
+    fill: #fff

@@ -1,0 +1,35 @@
+#gallery > #thumbsView > li
+  position: relative
+  background: #000
+  width: 100px
+  height: 100px
+  overflow: hidden
+  margin: 0 10px 0 0
+  display: inline-block
+  list-style: none
+
+#gallery > #thumbsView > li > img
+  max-width: 100px
+
+#gallery > #galleryView
+  background: rgba(0, 0, 0, .9)
+  position: fixed
+  left: 0
+  top: 0
+  bottom: 0
+  right: 0
+  z-index: 9999
+
+#gallery > #galleryView > li.selected
+  overflow: hidden
+  width: 50%
+  position: absolute
+  left: 25%
+  top: 0
+  bottom: 0
+
+#gallery > #galleryView > li.selected img
+  min-height: 100%
+
+#gallery > #galleryView > li.selected
+  display: block

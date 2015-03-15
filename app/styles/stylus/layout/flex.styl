@@ -1,0 +1,77 @@
+.hide
+  display none
+
+.app-body, .app-wrapper
+  display flex
+  flex-direction column
+
+.column-sidebar
+  background #333
+  order -1
+
+.column
+  transition all 200ms @ease-in-out-quad
+  height auto
+
+.column-main
+  background #f1f1f1
+
+@media(min-width: 768px)
+  .app-body
+    flex-direction row
+    flex 1
+  .column-main
+    flex 1
+  .column
+    height 100vh
+    overflow-y auto
+    ::-webkit-scrollbar
+      width 9px   
+      background transparent
+    ::-webkit-scrollbar-thumb
+      background: #2B384F
+  .column-sidebar
+    transition all 200ms $ease-in-out-quad
+    flex 0 0 20%
+  .column-stack
+    transition all 200ms $ease-in-out-quad
+    flex 0 0 20%
+    background #161616
+  .app-wrapper
+    display flex
+    flex-direction row
+  .app-wrapper-inner
+    flex 1
+    overflow-y auto
+    height calc(100vh - 60px)
+  .content-body
+    flex 1
+    height 2200px
+  .stack-wrapper
+    overflow-y auto
+    flex 0 0 30%
+    height calc(100vh - 60px)
+    background #333
+  .stack-body
+    height auto
+
+.top-bar
+  background RGBA(64, 82, 175, .9)
+  height 60px
+  flex 1
+
+/*
+.top-bar
+  background #3F51B5
+  height 60px
+  width 100%
+  position fixed
+*/
+
+#event .image
+  background url('https://dev.tracklistapp.com/uploads/large/1423257570473ud88u1vvq0uxflxr') no-repeat 50% 50%
+  background-size cover
+  //margin-top -60px
+  height 480px
+  width 100%
+  

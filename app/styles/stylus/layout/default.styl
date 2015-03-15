@@ -1,0 +1,729 @@
+  /*
+   * Common
+   */
+
+html, body
+  min-height 100%
+  
+body
+  background bg-color
+  font font
+
+img
+  max-width 100%
+
+a
+  color inherit
+
+section
+  position relative
+
+noscript
+  background rgba(0, 0, 0, .9)
+  position absolute
+  color #fff
+  top 0
+  bottom 0
+  right 0
+  left 0
+  z-index 400
+
+noscript 
+  .text-wrap
+    position relative
+    height 100%
+  .text
+    position absolute
+    width 50%
+    left 25%
+    right 25%
+    top 50%
+    text-align center
+  a
+    text-decoration underline
+
+blockquote
+  border-bottom 2px solid
+  border-radius (0 0 3px 0)
+  border-right 1px solid
+  font-size 0.8em
+  font-style italic
+  margin 0
+  padding 0
+
+// Markdown specific
+
+pre
+  background-color #f8f8f8
+  border-radius (4px)
+  border 1px solid #ccc
+  margin 20px 0
+  padding 5px
+
+code
+  font-family "Menlo Regular" monospace
+  font-size 1em
+
+.pull-right
+  float right
+.pull-left
+  float left
+
+.page
+  color #333
+  background bg-color
+
+.auth
+  .container
+    background transparent
+
+.container
+  position relative
+  margin 0 10px 0 10px
+
+.well
+  padding 10px
+  background-color rgba(0, 0, 0, .1)
+  border-radius 3px
+
+#mailing
+  margin 20px
+  text-align center
+
+#mailing .btn
+  margin 0 auto
+
+.tools
+  position relative
+  width 100%
+  height 60px
+
+.tools-btns
+  float right
+  li
+    display inline-block
+    list-style none
+
+.map
+  width 100%
+  height 0
+  margin 0 auto
+  padding-top 33.33%
+  position relative
+  iframe
+    width 100%
+    height 100%
+    position absolute
+    top 0
+    right 0
+    left 0
+    bottom 0
+
+.left-tab
+  position absolute
+  height 100%
+  width 50px
+  background #333
+
+#wrapper.slide
+  position absolute
+  left 0
+  top 0
+  bottom 0
+  right 0
+  overflow-x hidden
+
+#app
+  transition all 200ms $ease-in-out-quad
+
+#app.slide
+  transition all 200ms $ease-in-out-quad
+  transform translate3d(250px,0,0)
+  @media (min-width 760px)
+    margin-left 250px
+    transform translate3d(0,0,0)
+
+.squares
+  font-size 0
+.squares
+  .square
+    display inline-block
+    margin 0
+    padding 0
+    img
+      margin 0
+      padding 0
+
+.side-control
+  padding 10px
+  position relative
+  color #333
+
+.list-item
+  width 100%
+  display block
+.list-item-metas
+  display table
+.list-item-meta
+  display table-cell
+.list-item-actions
+  float right
+.list-item-action
+  display inline-block
+  padding 0 20px
+  line-height 60px
+  color #bbb
+  background #333
+  height 100%
+.list-item img
+  margin 10px 0
+  margin 1rem 0
+
+ul
+  &.disc
+    list-style-type disc
+    margin-left 20px
+  &.square
+    list-style-type square
+
+ol
+  &.upper-roman
+    list-style-type upper-roman
+  &.lower-alpha
+    list-style-type lower-alpha
+
+.rounded
+  border-radius 50%
+
+.squarish
+  border 3px solid #fff
+  border-radius 2px
+  box-shadow 0 0 1px #000
+
+/*
+ * Miscs (keep at the bottom)
+ */
+
+.wild
+  min-height 20px
+  margin 0
+  padding 20px
+  background-color rgba(255, 255, 255, .95)
+  border-radius 4px
+
+#login, #signup
+  margin 80px 0
+
+#backdrop
+  -moz-background-size cover
+  -o-background-size cover
+  -webkit-background-size cover
+  background-size cover
+  background url("/img/sc.jpg") no-repeat center center
+  bottom 0
+  left 0
+  position absolute
+  right 0
+  top 0
+  z-index -1
+
+.well-sm
+  padding 9px
+  border-radius 3px
+
+.btn-sm
+  padding 5px 10px
+  font-size 12px
+  line-height 1.5
+  border-radius 3px
+
+table
+  border-spacing 2px
+  border-color gray
+
+.confirm-box
+  border-top 1px solid #333
+  border-bottom 3px solid #333
+  z-index 9999
+  padding 10px 60px
+  background #f0f0f0
+  width 100%
+  position fixed
+  left 0
+  bottom 0
+
+.form-actions
+  float right
+  li
+    display inline-block
+
+
+
+.danger:hover
+  background red
+
+ul#profile-menu
+  li
+    line-height 2
+    border-bottom 1px solid #ddd
+  a
+    color #333
+
+small.powered
+  display block
+  margin 10px 20px
+
+.loading
+  margin 20px 0
+  width 100%
+  position relative
+
+.loading
+  button, span
+    width 50%
+    left 25%
+    position absolute
+    z-index 10
+
+#features
+  margin 50px 0
+  text-align center
+  @media (min-width 480px)
+    text-align left
+
+#features
+  li
+    line-height 2
+
+#apps
+  img
+    max-width 100%
+    width 50%
+  .app
+    text-align center
+  .btn
+    width 80%
+    margin 50px auto
+
+.tab-pane p
+  float left
+
+.nav-tabs
+  overflow hidden
+  background: #fff
+
+.nav-tabs li
+  position relative
+  line-height 2
+  margin-bottom 0
+
+.nav-tabs li a
+  display block
+
+.nav-tabs li a
+  position relative
+  color #9da9c1
+  font-weight 300
+  font-size 1.2rem
+  line-height 60px
+  font-family 'nimbus-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+  margin 0
+  padding 0 20px 0 20px
+  border-radius 0
+  border 0
+
+.nav-tabs a
+  border 0!important
+
+.nav-tabs li a.active:after, .nav-tabs li.active a:after
+  background: RGBA(63, 81, 181, 1)
+
+.nav-tabs.scrolled
+  position fixed
+  z-index 500
+  background #fff
+  border-bottom 1px solid #ddd
+  top 60px
+  left 0
+  right 0
+
+.upload-form
+  float left
+  width 100%
+  margin 20px 0
+  background #fffeee
+  padding 10px
+
+#profilePage
+  min-height 600px
+  min-height 50vh
+
+#profilePage
+  .bio
+    @media(min-width 760px)
+      width 50%
+      margin 0 auto
+  p
+    font-size 1.2rem
+    letter-spacing 0.01rem
+    line-height 1.5
+
+#userProfile
+  .username
+    text-align center
+    font-weight 600
+
+.userPic-wrapper
+  width 120px
+  display block
+  margin 0 auto
+.userPic
+  background-size 100%
+  border-radius (50%)
+  border 2px solid #fff
+  height 120px
+  width 120px
+  overflow hidden
+
+.activity
+  min-width 50%
+  padding 20px 0 20px 0
+  color #333
+  @media(min-width480px)
+    min-width (100% / 3)
+  h4, h6, .count
+    text-align center   
+  .count
+    font-family 'nimbus-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+    font-size 3rem
+    display block
+  .btn
+    width 75%
+    margin 0 auto
+    display block
+
+#activities
+  li
+    background #fff
+  ul > li
+    @media(max-width479px)
+      &nth-of-type(3n+1), &nth-child(5)
+        background #f2f4f8
+    @media(min-width480px)
+      &nth-of-type(odd)
+        background #f2f4f8
+
+.datetime
+  margin 10px 0
+  width 60px
+  height 60px
+  display block
+  background transparent
+
+.datetime > .d
+  border-radius 0 0 2px 2px
+  text-align center
+  background white
+  width 100%
+  display block
+  line-height 40px
+  font-size 2rem
+  color #333
+
+.datetime > .m
+  border-radius 2px 2px 0 0
+  text-align center
+  display block
+  width 100%
+  background red
+  line-height 20px
+  font-size .8rem
+  color white
+
+.wrapper-footer
+  display block
+  width 100%
+  float left
+
+preload-image
+  display block
+  position absolute
+  top 0
+  bottom 0
+  left 0
+  right 0
+
+@media(min-width1224px)
+  image-loading img
+    width 1200px
+    height 800px
+
+/* Search */
+
+section#search
+  background #fff
+  position relative
+  color #333
+  margin 0
+  display block
+  width 100%
+  overflow-y scroll
+  a
+    color #333
+
+section#search
+  typeahead input
+    margin 2rem 0
+    color #333
+    height auto
+    padding 10px 0 10px 0
+    letter-spacing 2px
+    font-size 3rem
+    border none
+  typeahead input:focus
+    border none
+    box-shadow none
+    border-bottom 1px solid #333
+
+  /*
+   * Pages
+   */
+
+
+#pageHeader.artist
+  animation morph 200ms $ease-in-quad
+
+#pageHeader .toolbar
+  background none
+  border-bottom 0
+  .btn
+    margin 10px
+    border-radius 3px
+    line-height 1
+
+#pageHeader-overlay
+  top 0
+  right 0
+  bottom 0
+  left 0
+  position absolute
+
+#pageHeader-content
+  position absolute
+  text-align center
+  width 50%
+  height 50%
+  top: 25%
+  left 25%
+  h1
+    font-size 2rem
+    @media (min-width  760px)
+      font-size 3rem
+  p
+    white-space pre-line
+    font-family 'proxima-nova-soft', 'Helvetica Neue', Helvetica, Arial, sans-serif
+    line-height 1.2
+    font-size 1.2rem
+    @media (min-width  760px)
+      font-size 1.6rem
+
+#pageContent
+  min-height 300px
+
+#pageHeader
+  overflow: hidden
+
+#pageHeader-images-row
+  overflow: hidden
+  padding: 0
+  margin: 0
+  list-style: none
+  display: flex
+  flex-flow: row wrap
+
+#pageHeader-images-row
+  .flex-item
+    animation pop 200ms $ease-in-out-quad
+    //width: 25vw
+    //height: 25vw
+    min-width: 220px
+    min-height: 220px
+    @media(min-width:760px)
+      min-width: 330px
+      min-height: 330px
+    flex-grow: 1
+    overflow: hidden
+    margin: 0
+    position: relative
+  .image
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+  /*
+   * Miscs
+   */
+
+.goDown
+  position absolute
+  bottom 0
+  left 25%
+  right 25%
+  width 50%
+  height 60px
+
+.icon-arrow
+  color #fff
+  font-size 2rem
+  text-align center
+
+.icon-arrow.bounce
+  animation bounce 1000ms infinite
+
+.artists, .labels, .venues, #user-image
+  img
+    float left
+  li
+    display inline-block
+    margin 0 1rem 1rem 0
+    text-align center
+  figtext
+    line-height 100px
+    white-space nowrap
+  figure
+    &:hover > figcaption
+      visibility visible
+      opacity 1
+
+#explore
+  background: #fff
+  box-shadow: 0 1px 1px #bbb
+
+#explore
+  .icon-arrow
+    font-size 1rem
+    animation bounce 1000ms infinite
+    //transform rotate(-0.25turn)
+    position: absolute
+    bottom: 25%
+    left: 45%
+    font-size: 0.8rem
+  .caption
+    opacity: 0
+    overflow: hidden
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    height: 100%
+  .name
+    white-space: nowrap
+    display: block
+    text-align: center
+    font-family: proxima-soft
+    text-overflow: ellipsis
+    color: #fff
+    font-size: 1.6rem
+    display: block
+    overflow: hidden
+    letter-spacing: 1px
+    position: relative
+    top: 50%
+    -webkit-transform: translateY(-50%);
+  li
+    //animation scaleUp 300ms $ease-in-quad 
+    -webkit-backface-visibility: hidden
+    -moz-backface-visibility: hidden
+    transform: translate3d(0, 0, 0)
+    animation pop 200ms $ease-in-out-quad
+    margin: 10px
+    overflow: hidden
+  li > a:hover
+    .image
+      background-size: 180%!important
+      //-webkit-filter: blur(3px)
+    .caption
+      opacity: 1
+      background: rgba(0, 0, 0, .3)
+      //box-shadow: inset 0 0 5px rgba(0, 0, 0, .2)
+  li > a
+    width: 220px
+    height: 220px
+    display: block
+    overflow: hidden
+    position: relative
+  .image 
+    background-size: 300px!important
+    overflow: hidden
+    position: relative
+    width: 220px
+    height: 220px
+    transition: background-size 500ms $ease-in-out-quad
+   
+
+.timepicker a
+  color: #538DD5
+  margin: 0
+  padding: 0
+  font-size: .8rem
+  line-height: 1
+  text-align: center
+  display: block
+
+.timepicker input
+  color: #f0f0f0!important
+
+.timepicker td, th
+  padding: 0
+
+.timepicker .btn
+  margin: 0 10px
+  font-size: 0.9rem
+
+#login, #signup
+  color: #333
+  padding 40px 30px
+  input
+    line-height 30px
+  label
+    font-weight 600
+    font-size 1rem
+    color #333
+
+.segment
+  display: block
+  min-height: 600px
+  background: #fff
+  
+section#pageContent
+  box-shadow: 0 1px 1px #bbb
+  .table
+    .datetime
+      margin: 10px 0 10px 10px
+    time span.d
+      box-shadow: inset 0 0 1px #bbb
+
+section#bio
+  article
+    margin: 0px 10% 40px 10%
+    padding: 20px 0 0 0
+  p
+    padding: 0 20px
+    font-size: calc(12vmin / 5)
+
+.arrow
+  position: absolute
+  bottom: 50%
+  background: #fff
+  border-radius: 50%
+  width: 48px
+  height: 48px
+  line-height: 48px
+  text-align: center
+
+.arrow.next
+  right: -10%;
+.arrow.prev
+  left: -10%;
