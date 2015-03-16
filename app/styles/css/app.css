@@ -442,8 +442,8 @@ a.btn {
   margin: 2rem 0;
 }
 .btn-center {
-  display: block !important;
-  width: 50% !important;
+  display: block;
+  width: 50%;
   left: 25%;
 }
 .btn-small {
