@@ -7,9 +7,10 @@ html(ng-app="BookmarksManagerApp" lang="en" ng-csp)
     link(rel="stylesheet", href="app/dist/app.css")
   body(ng-controller="MainCtrl")
     .app.app-body
-      .column.column-sidebar
-        nav
-          li: a(ui-sref="bookmarks.list") Bookmarks
+      //
+        .column.column-sidebar
+          nav
+            li: a(ui-sref="bookmarks.list") Bookmarks
       .column.column-main
         .top-bar
           input(type="search", ng-model="search")

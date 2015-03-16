@@ -19,8 +19,12 @@
       $scope.trustSrc = function(src){
         return $sce.trustAsResourceUrl(src);
       };
-      return chrome.bookmarks.getRecent(100, function(data){
-        return $scope.bookmarks = data;
+      /*
+      chrome.bookmarks.getRecent 100, (data) ->
+        $scope.bookmarks = data
+      */
+      return chrome.bookmarks.getTree(function(data){
+        return $scope.bookmarks = data[0].children[0].children;
       });
     }
   ]);
