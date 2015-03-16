@@ -15,9 +15,12 @@ app.config ($compileProvider, $stateProvider, $urlRouterProvider, $locationProvi
       url: ''
       templateUrl: '/app/templates/bookmarks/list.html'
 
-app.controller 'MainCtrl', ['$scope' ($scope) ->
+app.controller 'MainCtrl', ['$sce', '$scope' ($sce, $scope) ->
 
-  chrome.bookmarks.getRecent 5000, (data) ->
+  $scope.trustSrc = (src) ->
+    return $sce.trustAsResourceUrl(src)
+
+  chrome.bookmarks.getRecent 100, (data) ->
     $scope.bookmarks = data
   /*
 

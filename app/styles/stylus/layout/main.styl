@@ -3,8 +3,8 @@ html, body
   background #fff
   
 body
-  background main-bg-color
-  font font
+  background $white(1)
+  font $font
 
 img
   max-width 100%
@@ -73,12 +73,27 @@ nav > li > a:hover
   background rgba(0 0 0 .1)
 
 section#bookmarks
-  li.bookmark
+  .bookmark
     list-style-type none
-    a.title
-      line-height 30px
-      display block
-      overflow hidden
-      text-overflow ellipsis
-      white-space nowrap
+    box-shadow 0 1px 0 rgba(64, 82, 175, .333)
+    padding .6rem 0 .6rem 1.2rem
+    &:hover .url
+      color rgba(64, 82, 175, 1)
+  span
+    display block
+    color #4052AF
+  .title
+    line-height 1.2
+    color rgba(0 0 0 .9)
+    font-weight 600
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+  .url
+    transition color 200ms @ease-in-out-quad
+    color rgba(64, 82, 175, .333)
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+
     

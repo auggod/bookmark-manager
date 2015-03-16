@@ -15,8 +15,11 @@
     });
   });
   app.controller('MainCtrl', [
-    '$scope', function($scope){
-      return chrome.bookmarks.getRecent(5000, function(data){
+    '$sce', '$scope', function($sce, $scope){
+      $scope.trustSrc = function(src){
+        return $sce.trustAsResourceUrl(src);
+      };
+      return chrome.bookmarks.getRecent(100, function(data){
         return $scope.bookmarks = data;
       });
     }

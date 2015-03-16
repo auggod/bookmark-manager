@@ -2,7 +2,6 @@ html,
 body,
 div,
 span,
-object,
 iframe,
 h1,
 h2,
@@ -26,7 +25,6 @@ kbd,
 q,
 samp,
 small,
-strong,
 sub,
 sup,
 var,
@@ -71,6 +69,9 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+body {
+  text-rendering: optimizeLegibility;
 }
 article,
 aside,
@@ -164,6 +165,14 @@ input,
 select {
   vertical-align: middle;
 }
+::-moz-selection {
+  background: #feeea7;
+  color: #fff;
+}
+::selection {
+  background: #feeea7;
+  color: #fff;
+}
 *,
 *:before,
 *::after {
@@ -175,7 +184,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'proxima-nova-soft', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
   font-size: inherit;
   font-weight: 400;
 }
@@ -185,9 +194,8 @@ h3 small,
 h4 small,
 h5 small,
 h6 small {
-  font-family: 'aktiv-grotesk-std', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
   padding-left: 10px;
-  text-transform: uppercase;
 }
 h1 {
   font-weight: 600;
@@ -201,6 +209,7 @@ h1 {
 h1 small {
   font-size: 10px;
   font-weight: 400;
+  line-height: 1;
   font-size: 1rem;
 }
 h2 {
@@ -245,46 +254,67 @@ h6 {
   font-size: 1rem;
   line-height: 1.2;
 }
-p {
-  line-height: 1.1818;
+@media (min-resolution: 1dppx), (min-resolution: 96dpi), (-webkit-min-device-pixel-ratio: 1) {
+  html {
+    font-size: 1rem;
+  }
 }
-.bg-light {
-  background: #f0f0f0;
-  color: #333;
+@media (min-resolution: 1.3dppx), (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 13/10) {
+  html {
+    font-size: 1rem;
+  }
 }
-.bg-dark {
-  background: #333;
-  color: #fff;
+@media (min-resolution: 1.5dppx), (min-resolution: 144dpi), (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2) {
+  html {
+    font-size: 1rem;
+  }
 }
-.bg-sc {
-  background: #f96100;
-  color: #fff;
+@media (min-resolution: 2dppx), (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1) {
+  html {
+    font-size: 1.1rem;
+  }
 }
-.full-vh {
-  min-height: calc(100vh - 60px);
+@media (min-resolution: 3dppx), (min-resolution: 288dpi), (-webkit-min-device-pixel-ratio: 3), (-o-min-device-pixel-ratio: 3/1) {
+  html {
+    font-size: 1.3rem;
+  }
 }
-.three-quarter-vh {
-  min-height: calc(75vh - 45px);
+button,
+input[type="button"],
+input[type="submit"],
+border none {
+  border-width: 0;
+  outline: 0;
 }
-.half-vh {
-  min-height: calc(50vh - 30px);
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
-.quarter-vh {
-  min-height: calc(25vh - 25px);
-}
-.third-vh {
-  min-height: calc(33vh - 20px);
-}
-.box-item {
-  position: relative;
-}
-a[ ng-click ] {
+button,
+input[type="button"],
+input[type="submit"],
+a.btn {
+  background: #ccc;
+  color: #000;
+  font-weight: normal;
   cursor: pointer;
-  user-select: none;
+  position: relative;
+  transition: background 200ms;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+  line-height: 1.4;
+}
+a.btn {
+  display: inline-block;
+}
+.btn-group > a.btn {
+  display: inline-block;
 }
 .fileUpload {
   position: relative;
@@ -301,32 +331,6 @@ a[ ng-click ] {
   margin: 0;
   padding: 10px;
   opacity: 0;
-}
-button,
-.btn {
-  cursor: pointer;
-  display: inline-block;
-  font-family: normal 400 1rem 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-size: 1rem;
-  position: relative;
-  text-align: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  line-height: 1.4;
-  border: none;
-  border-radius: 4px;
-  outline: 0;
-  border-width: 0;
-  padding: 10px;
-}
-.btn-group > .btn {
-  display: inline-block;
-}
-.btn-sm {
-  font-size: 0.9rem;
-  padding: 3px;
 }
 .file-upload-button-bar input {
   position: absolute;
@@ -345,6 +349,10 @@ button,
   overflow: visible;
   overflow: hidden;
 }
+.btn-sm {
+  font-size: 0.9rem;
+  padding: 3px;
+}
 .btn-light {
   background: #fff;
   color: #333;
@@ -353,7 +361,7 @@ button,
   background: rgba(255,255,255,0.8);
 }
 .btn-light.btn-transparent {
-  background: rgba(255,255,255,0);
+  background: transparent;
   border: 2px solid #fff;
   color: #fff;
 }
@@ -373,7 +381,7 @@ button,
   border-color: transparent;
 }
 .btn-default.btn-transparent {
-  background: rgba(0,0,0,0);
+  background: transparent;
   color: #333;
 }
 .btn-default.btn-transparent:hover,
@@ -426,17 +434,6 @@ button,
   border-color: transparent;
   color: #fff;
 }
-.btn-sc {
-  background-color: #f76700;
-  color: #fff;
-  text-shadow: none;
-  box-shadow: none;
-  border: none;
-  border-color: #f76700;
-}
-.btn-sc:hover {
-  background: rgba(255,255,255,0.2);
-}
 .btn-large {
   font-size: 2rem;
   padding: 1rem;
@@ -455,34 +452,6 @@ button,
 }
 .btn-rounded {
   border-radius: 30px;
-}
-.datepicker .dropdown-menu {
-  width: 300px;
-  height: 330px;
-  overflow: auto;
-  margin: auto;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.datepicker .btn-default {
-  background: #fff;
-  color: #333;
-  padding: 7px;
-  border: 1px solid transparent;
-}
-.datepicker .btn-default:active,
-.datepicker .btn-default:hover {
-  background: #333;
-  border: 1px solid rgba(0,0,0,0);
-  color: #fff;
-}
-.datepicker .btn-info {
-  color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
 }
 input[type="search"] {
   -webkit-appearance: textfield;
@@ -505,7 +474,7 @@ textarea {
   padding: 6px 0 6px 6px;
   font-size: 10px;
   font-size: 1rem;
-  font-family: normal 400 1rem 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: font;
   display: block;
   color: #555;
   transition: all 0.2s linear;
@@ -620,7 +589,7 @@ legend {
   font-weight: 500;
 }
 label {
-  font: normal 400 1rem 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: font;
   font-size: 0.9rem;
   margin: 0;
   line-height: 1;
@@ -654,47 +623,6 @@ select {
 }
 typeahead {
   display: block;
-}
-.container-fluid {
-  margin: 0 auto;
-  width: 90%;
-}
-@media (min-width: 1025px) {
-  .container {
-    width: 960px;
-    margin: 0 auto;
-  }
-}
-@media (min-width: 1224px) {
-  .container {
-    width: 1200px;
-    margin: 0 auto;
-  }
-}
-@media (min-resolution: 1dppx), (min-resolution: 96dpi), (-webkit-min-device-pixel-ratio: 1) {
-  html {
-    font-size: 1rem;
-  }
-}
-@media (min-resolution: 1.3dppx), (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 13/10) {
-  html {
-    font-size: 1rem;
-  }
-}
-@media (min-resolution: 1.5dppx), (min-resolution: 144dpi), (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2) {
-  html {
-    font-size: 1rem;
-  }
-}
-@media (min-resolution: 2dppx), (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1) {
-  html {
-    font-size: 1.1rem;
-  }
-}
-@media (min-resolution: 3dppx), (min-resolution: 288dpi), (-webkit-min-device-pixel-ratio: 3), (-o-min-device-pixel-ratio: 3/1) {
-  html {
-    font-size: 1.3rem;
-  }
 }
 .table {
   display: table;
@@ -825,8 +753,8 @@ body {
   background: #fff;
 }
 body {
-  background: #f0f0f0;
-  font: normal 400 1rem 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #fff;
+  font: normal 400 1rem 'Helvetica Neue', Helvetica, sans-serif;
 }
 img {
   max-width: 100%;
@@ -893,12 +821,30 @@ nav > li > a {
 nav > li > a:hover {
   background: rgba(0,0,0,0.1);
 }
-section#bookmarks li.bookmark {
+section#bookmarks .bookmark {
   list-style-type: none;
+  box-shadow: 0 1px 0 rgba(64,82,175,0.333);
+  padding: 0.6rem 0 0.6rem 1.2rem;
 }
-section#bookmarks li.bookmark a.title {
-  line-height: 30px;
+section#bookmarks .bookmark:hover .url {
+  color: #4052af;
+}
+section#bookmarks span {
   display: block;
+  color: #4052af;
+}
+section#bookmarks .title {
+  line-height: 1.2;
+  color: rgba(0,0,0,0.9);
+  font-weight: 600;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+section#bookmarks .url {
+  transition: color 200ms;
+  color: rgba(64,82,175,0.333);
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;

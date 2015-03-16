@@ -1,4 +1,6 @@
 
 <section id="bookmarks">
-  <li data-ng-repeat="bookmark in bookmarks | filter:search" class="bookmark"><a ng-href="{{bookmark.url}}" class="title">{{bookmark.title}}</a></li>
+  <li data-ng-repeat="bookmark in bookmarks | filter:search" class="bookmark"><span class="title">{{bookmark.title}}</span><span class="url">{{bookmark.url}}</span>
+    <!--iframe(ng-src="{{trustSrc(bookmark.url)}}" width="640" height="480")-->
+  </li>
 </section>

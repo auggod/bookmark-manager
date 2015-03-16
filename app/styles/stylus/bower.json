@@ -1,0 +1,10 @@
+{
+  "name": "tracklist-stylus",
+  "version": "0.0.0",
+  "dependencies": {
+    "grid": "https://github.com/melchiorb/grid.styl.git",
+    "baseline": "https://github.com/melchiorb/baseline.styl.git",
+    "nope-stylus": "https://auggod@bitbucket.org/auggod/nope-stylus.git",
+    "bootstrap-stylus": "~2.3.2"
+  }
+}
