@@ -8,6 +8,7 @@
     while (i >= 0) {
       header = headers[i].name.toLowerCase();
       if (header === 'x-frame-options' || header === 'frame-options') {
+        console.log('removed x-frame-options');
         headers.splice(i, 1);
       }
       --i;
@@ -50,9 +51,6 @@
           });
         });
         return element.bind('click', function(event){
-          if (isFrameNotAllowed) {
-            return window.open(scope.bookmark.url, '_blank');
-          }
           return scope.showView(scope.bookmark.url);
         });
       }

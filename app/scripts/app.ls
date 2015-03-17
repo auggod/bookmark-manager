@@ -4,6 +4,7 @@ chrome.webRequest.onHeadersReceived.addListener ((info) ->
   while i >= 0
     header = headers[i].name.toLowerCase()
     if header == 'x-frame-options' or header == 'frame-options'
+      console .log 'removed x-frame-options'
       headers.splice i, 1
       # Remove header
     --i
@@ -32,7 +33,7 @@ app.directive 'checkUrl' ->
       {'name':'programmers.stackexchange.com'}
       {'name':'medium.com'}
     ]
-    #Inform user that frames are not allowed for a given url
+
     isFrameNotAllowed =  _.result _.find(sites
       'name': scope.bookmark.url.split( '/' )[2]
       ), 'name'
@@ -43,7 +44,7 @@ app.directive 'checkUrl' ->
         element.removeClass('no-frames-allowed')
 
     element.bind 'click', (event) ->
-      return window.open scope.bookmark.url,'_blank' if isFrameNotAllowed
+      #return window.open scope.bookmark.url,'_blank' if isFrameNotAllowed
       scope.showView(scope.bookmark.url)
 
 app.directive 'visited', ->
@@ -58,7 +59,7 @@ app.controller 'MainCtrl', ['$sce', '$scope' ($sce, $scope) ->
   $scope.clicks = []
 
   $scope.trustSrc = (src) ->
-    return $sce.trustAsResourceUrl(src)
+    $sce.trustAsResourceUrl(src)
 
   $scope.showView = (url) ->
     $scope.viewUrl = url
