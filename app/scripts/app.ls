@@ -33,9 +33,37 @@ app.config ($compileProvider, $stateProvider, $urlRouterProvider, $locationProvi
       url: ''
       templateUrl: '/app/templates/bookmarks/list.html'
 
+app.directive 'checkUrl' ->
+  link: (scope, element, attrs) ->
+
+    #Frames are not allowed on these websites
+    sites = [
+      {'name':'github.com'}
+      {'name':'stackoverflow.com'}
+      {'name':'programmers.stackexchange.com'}
+    ]
+
+    #Inform user that frames are not allowed for a given url
+    element.parent().bind 'mouseenter', (event) ->
+
+      url = scope.bookmark.url.split( '/' )
+      siteName = url[2]
+
+      if _.result _.find(sites
+        'name': siteName
+        ), 'name'
+        return element.addClass('no-frames-allowed')
+
+app.directive 'visited', ->
+  link: (scope, element, attrs) ->
+    element.bind 'click', (event) ->
+      event.preventDefault()
+      element.addClass('visited')
+
 app.controller 'MainCtrl', ['$sce', '$scope' ($sce, $scope) ->
 
   $scope.bookmarks = []
+  $scope.clicks = []
 
   $scope.trustSrc = (src) ->
     return $sce.trustAsResourceUrl(src)

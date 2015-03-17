@@ -80,8 +80,11 @@ section#bookmarks
     list-style-type none
     box-shadow 0 1px 0 rgba(64, 82, 175, .333)
     padding .6rem 0 .6rem 1.2rem
-    &:hover .url
-      color rgba(64, 82, 175, 1)
+  a:active, a.visited .url, li:first-child .url
+    color rgba(64, 82, 175, .333)
+  a.no-frames-allowed:after
+    content "Frames are not allowed on this host"
+    color red
   span
     display block
     color #4052AF
@@ -94,7 +97,7 @@ section#bookmarks
     white-space nowrap
   .url
     transition color 200ms @ease-in-out-quad
-    color rgba(64, 82, 175, .333)
+    color rgba(64, 82, 175, 1)
     overflow hidden
     text-overflow ellipsis
     white-space nowrap

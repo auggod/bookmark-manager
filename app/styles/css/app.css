@@ -822,8 +822,14 @@ section#bookmarks .bookmark {
   box-shadow: 0 1px 0 rgba(64,82,175,0.333);
   padding: 0.6rem 0 0.6rem 1.2rem;
 }
-section#bookmarks .bookmark:hover .url {
-  color: #4052af;
+section#bookmarks a:active,
+section#bookmarks a.visited .url,
+section#bookmarks li:first-child .url {
+  color: rgba(64,82,175,0.333);
+}
+section#bookmarks a.no-frames-allowed:after {
+  content: "Frames are not allowed on this host";
+  color: #f00;
 }
 section#bookmarks span {
   display: block;
@@ -840,7 +846,7 @@ section#bookmarks .title {
 }
 section#bookmarks .url {
   transition: color 200ms;
-  color: rgba(64,82,175,0.333);
+  color: #4052af;
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;

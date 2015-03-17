@@ -12,9 +12,9 @@ html(ng-app="BookmarksManagerApp" lang="en" ng-csp)
           input#search(type="search", ng-model="search", placeholder="Type here to filter")
         section#bookmarks
           li.bookmark(ng-repeat="bookmark in bookmarks | filter:search")
-            a.link(ng-click="showView(bookmark.url)")
-              span.title {{bookmark.title}}
-              span.url {{bookmark.url}}
+            a.link(check-url ng-model="bookmark.url" visited ng-src="#" ng-click="showView(bookmark.url)")
+              span.title(ng-bind="bookmark.title")
+              span.url(ng-bind="bookmark.url")
       .column.column-main
         .app-wrapper
           .app-wrapper-inner

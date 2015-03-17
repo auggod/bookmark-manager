@@ -32,9 +32,46 @@
       templateUrl: '/app/templates/bookmarks/list.html'
     });
   });
+  app.directive('checkUrl', function(){
+    return {
+      link: function(scope, element, attrs){
+        var sites;
+        sites = [
+          {
+            'name': 'github.com'
+          }, {
+            'name': 'stackoverflow.com'
+          }, {
+            'name': 'programmers.stackexchange.com'
+          }
+        ];
+        return element.parent().bind('mouseenter', function(event){
+          var url, siteName;
+          url = scope.bookmark.url.split('/');
+          siteName = url[2];
+          if (_.result(_.find(sites, {
+            'name': siteName
+          }), 'name')) {
+            return element.addClass('no-frames-allowed');
+          }
+        });
+      }
+    };
+  });
+  app.directive('visited', function(){
+    return {
+      link: function(scope, element, attrs){
+        return element.bind('click', function(event){
+          event.preventDefault();
+          return element.addClass('visited');
+        });
+      }
+    };
+  });
   app.controller('MainCtrl', [
     '$sce', '$scope', function($sce, $scope){
       $scope.bookmarks = [];
+      $scope.clicks = [];
       $scope.trustSrc = function(src){
         return $sce.trustAsResourceUrl(src);
       };
