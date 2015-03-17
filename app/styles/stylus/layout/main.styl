@@ -12,6 +12,9 @@ img
 a
   color inherit
 
+a.link
+  cursor pointer
+
 .content-body
   margin: 0 10px
 
@@ -96,4 +99,14 @@ section#bookmarks
     text-overflow ellipsis
     white-space nowrap
 
-    
+#mainSearch
+  position relative
+  width 100%
+  height 60px
+input#search
+  width 25%
+  position fixed
+  z-index 100
+  background RGBA(64, 82, 175, 1)
+  &::-webkit-input-placeholder
+    color rgba(255, 255, 255, .5)

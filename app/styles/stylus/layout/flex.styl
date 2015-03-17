@@ -6,7 +6,7 @@
   flex-direction column
 
 .column-sidebar
-  background #333
+  background #f1f1f1
   order -1
 
 .column
@@ -14,7 +14,7 @@
   height auto
 
 .column-main
-  background #f1f1f1
+  background #333
 
 @media(min-width: 768px)
   .app-body
@@ -32,18 +32,18 @@
       background: #2B384F
   .column-sidebar
     transition all 200ms $ease-in-out-quad
-    flex 0 0 20%
+    flex 0 0 25%
   .column-stack
     transition all 200ms $ease-in-out-quad
-    flex 0 0 20%
+    flex 0 0 25%
     background #161616
   .app-wrapper
     display flex
     flex-direction row
   .app-wrapper-inner
     flex 1
-    overflow-y auto
-    height calc(100vh - 60px)
+    //overflow-y auto
+    height calc(100vh)
   .content-body
     flex 1
     height 2200px
@@ -60,18 +60,4 @@
   height 60px
   flex 1
 
-/*
-.top-bar
-  background #3F51B5
-  height 60px
-  width 100%
-  position fixed
-*/
 
-#event .image
-  background url('https://dev.tracklistapp.com/uploads/large/1423257570473ud88u1vvq0uxflxr') no-repeat 50% 50%
-  background-size cover
-  //margin-top -60px
-  height 480px
-  width 100%
-  

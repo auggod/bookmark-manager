@@ -663,7 +663,7 @@ typeahead {
           flex-direction: column;
 }
 .column-sidebar {
-  background: #333;
+  background: #f1f1f1;
   -webkit-order: -1;
           order: -1;
 }
@@ -672,7 +672,7 @@ typeahead {
   height: auto;
 }
 .column-main {
-  background: #f1f1f1;
+  background: #333;
 }
 @media (min-width: 768px) {
   .app-body {
@@ -698,13 +698,13 @@ typeahead {
   }
   .column-sidebar {
     transition: all 200ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    -webkit-flex: 0 0 20%;
-            flex: 0 0 20%;
+    -webkit-flex: 0 0 25%;
+            flex: 0 0 25%;
   }
   .column-stack {
     transition: all 200ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    -webkit-flex: 0 0 20%;
-            flex: 0 0 20%;
+    -webkit-flex: 0 0 25%;
+            flex: 0 0 25%;
     background: #161616;
   }
   .app-wrapper {
@@ -716,8 +716,7 @@ typeahead {
   .app-wrapper-inner {
     -webkit-flex: 1;
             flex: 1;
-    overflow-y: auto;
-    height: calc(100vh - 60px);
+    height: calc(100vh);
   }
   .content-body {
     -webkit-flex: 1;
@@ -741,12 +740,6 @@ typeahead {
   -webkit-flex: 1;
           flex: 1;
 }
-#event .image {
-  background: url("https://dev.tracklistapp.com/uploads/large/1423257570473ud88u1vvq0uxflxr") no-repeat 50% 50%;
-  background-size: cover;
-  height: 480px;
-  width: 100%;
-}
 html,
 body {
   min-height: 100%;
@@ -761,6 +754,9 @@ img {
 }
 a {
   color: inherit;
+}
+a.link {
+  cursor: pointer;
 }
 .content-body {
   margin: 0 10px;
@@ -849,6 +845,20 @@ section#bookmarks .url {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+#mainSearch {
+  position: relative;
+  width: 100%;
+  height: 60px;
+}
+input#search {
+  width: 25%;
+  position: fixed;
+  z-index: 100;
+  background: RGBA(64, 82, 175, 1);
+}
+input#search::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.5);
 }
 @-webkit-keyframes slideFromTop {
   0% {

@@ -8,18 +8,20 @@
   </head>
   <body ng-controller="MainCtrl">
     <div class="app app-body">
-      <!--
-      .column.column-sidebar
-        nav
-          li: a(ui-sref="bookmarks.list") Bookmarks
-      -->
-      <div class="column column-main">
-        <div class="top-bar">
-          <input type="search" ng-model="search">
+      <div class="column column-sidebar">
+        <div id="mainSearch">
+          <input id="search" type="search" ng-model="search" placeholder="Type here to filter">
         </div>
+        <section id="bookmarks">
+          <li ng-repeat="bookmark in bookmarks | filter:search" class="bookmark"><a ng-click="showView(bookmark.url)" class="link"><span class="title">{{bookmark.title}}</span><span class="url">{{bookmark.url}}</span></a></li>
+        </section>
+      </div>
+      <div class="column column-main">
         <div class="app-wrapper">
           <div class="app-wrapper-inner">
-            <ui-view></ui-view>
+            <div ng-if="viewUrl">
+              <iframe ng-src="{{trustSrc(viewUrl)}}" style="width:100%;height:100vh;"></iframe>
+            </div>
           </div>
         </div>
       </div>

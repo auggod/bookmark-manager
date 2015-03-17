@@ -1,3 +1,21 @@
+chrome.webRequest.onHeadersReceived.addListener ((info) ->
+  headers = info.responseHeaders
+  i = headers.length - 1
+  while i >= 0
+    header = headers[i].name.toLowerCase()
+    if header == 'x-frame-options' or header == 'frame-options'
+      headers.splice i, 1
+      # Remove header
+    --i
+  { responseHeaders: headers }
+), {
+  urls: [ '*://*/*' ]
+  types: [ 'sub_frame' ]
+}, [
+  'blocking'
+  'responseHeaders'
+]
+
 app = angular.module 'BookmarksManagerApp', ['ui.router']
 
 app.config ($compileProvider, $stateProvider, $urlRouterProvider, $locationProvider) ->
@@ -17,15 +35,25 @@ app.config ($compileProvider, $stateProvider, $urlRouterProvider, $locationProvi
 
 app.controller 'MainCtrl', ['$sce', '$scope' ($sce, $scope) ->
 
+  $scope.bookmarks = []
+
   $scope.trustSrc = (src) ->
     return $sce.trustAsResourceUrl(src)
 
-  /*
-  chrome.bookmarks.getRecent 100, (data) ->
+  $scope.showView = (url) ->
+    $scope.viewUrl = url
+
+  chrome.bookmarks.getRecent 1000, (data) ->
     $scope.bookmarks = data
-  */
+    $scope.viewUrl = $scope.bookmarks[0].url
+    $scope.$apply()
+
+
+  /*
   chrome.bookmarks.getTree (data) ->
+    console.log data[0].children[0].children
     $scope.bookmarks = data[0].children[0].children
+  */
 
   /*
 

@@ -1,6 +1,6 @@
 section#bookmarks
   li.bookmark(data-ng-repeat="bookmark in bookmarks | filter:search")
-    a(ng-href="{{bookmark.url}}")
+    a(ng-href="{{bookmark.urld}}" ng-click="b = bookmark.url" )
       span.title {{bookmark.title}}
       span.url {{bookmark.url}}
-      //iframe(ng-src="{{trustSrc(bookmark.url)}}" width="640" height="480")
+      iframe(ng-src="{{trustSrc(b)}}" width="640" height="480")
