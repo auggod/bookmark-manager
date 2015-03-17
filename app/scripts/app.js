@@ -19,23 +19,14 @@
     urls: ['*://*/*'],
     types: ['sub_frame']
   }, ['blocking', 'responseHeaders']);
-  app = angular.module('BookmarksManagerApp', ['ui.router']);
-  app.config(function($compileProvider, $stateProvider, $urlRouterProvider, $locationProvider){
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
-    $urlRouterProvider.otherwise('/bookmarks');
-    return $stateProvider.state('bookmarks', {
-      abstract: true,
-      url: '/bookmarks',
-      templateUrl: '/app/templates/bookmarks/index.html'
-    }).state('bookmarks.list', {
-      url: '',
-      templateUrl: '/app/templates/bookmarks/list.html'
-    });
+  app = angular.module('BookmarksManagerApp', []);
+  app.config(function($compileProvider){
+    return $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
   });
   app.directive('checkUrl', function(){
     return {
       link: function(scope, element, attrs){
-        var sites;
+        var sites, isFrameNotAllowed;
         sites = [
           {
             'name': 'github.com'
@@ -45,15 +36,22 @@
             'name': 'programmers.stackexchange.com'
           }
         ];
-        return element.parent().bind('mouseenter', function(event){
-          var url, siteName;
-          url = scope.bookmark.url.split('/');
-          siteName = url[2];
-          if (_.result(_.find(sites, {
-            'name': siteName
-          }), 'name')) {
-            return element.addClass('no-frames-allowed');
+        isFrameNotAllowed = _.result(_.find(sites, {
+          'name': scope.bookmark.url.split('/')[2]
+        }), 'name');
+        element.bind('mouseenter', function(event){
+          if (isFrameNotAllowed) {
+            element.addClass('no-frames-allowed');
           }
+          return element.bind('mouseleave', function(event){
+            return element.removeClass('no-frames-allowed');
+          });
+        });
+        return element.bind('click', function(event){
+          if (isFrameNotAllowed) {
+            return window.open(scope.bookmark.url, '_blank');
+          }
+          return scope.showView(scope.bookmark.url);
         });
       }
     };
@@ -76,7 +74,8 @@
         return $sce.trustAsResourceUrl(src);
       };
       $scope.showView = function(url){
-        return $scope.viewUrl = url;
+        $scope.viewUrl = url;
+        return $scope.$apply();
       };
       return chrome.bookmarks.getRecent(1000, function(data){
         $scope.bookmarks = data;

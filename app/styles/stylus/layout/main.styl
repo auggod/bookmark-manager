@@ -82,9 +82,17 @@ section#bookmarks
     padding .6rem 0 .6rem 1.2rem
   a:active, a.visited .url, li:first-child .url
     color rgba(64, 82, 175, .333)
+  @keyframes fadeIn
+    0%
+      opacity 0
+    100%
+      opacity 1
   a.no-frames-allowed:after
-    content "Frames are not allowed on this host"
-    color red
+    animation fadeIn 200ms @ease-in-out-quad
+    font-size .8rem
+    opacity 1
+    content "We can't show a view of this website, click to open in a new window."
+    color RGBA(254, 188, 78, 1)
   span
     display block
     color #4052AF

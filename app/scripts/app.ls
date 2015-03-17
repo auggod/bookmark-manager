@@ -16,22 +16,11 @@ chrome.webRequest.onHeadersReceived.addListener ((info) ->
   'responseHeaders'
 ]
 
-app = angular.module 'BookmarksManagerApp', ['ui.router']
+app = angular.module 'BookmarksManagerApp', []
 
-app.config ($compileProvider, $stateProvider, $urlRouterProvider, $locationProvider) ->
+app.config ($compileProvider) ->
 
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/)
-
-  $urlRouterProvider.otherwise '/bookmarks'
-
-  $stateProvider
-    .state 'bookmarks',
-      abstract: true
-      url: '/bookmarks'
-      templateUrl: '/app/templates/bookmarks/index.html'
-    .state 'bookmarks.list',
-      url: ''
-      templateUrl: '/app/templates/bookmarks/list.html'
 
 app.directive 'checkUrl' ->
   link: (scope, element, attrs) ->
@@ -42,17 +31,19 @@ app.directive 'checkUrl' ->
       {'name':'stackoverflow.com'}
       {'name':'programmers.stackexchange.com'}
     ]
-
     #Inform user that frames are not allowed for a given url
-    element.parent().bind 'mouseenter', (event) ->
+    isFrameNotAllowed =  _.result _.find(sites
+      'name': scope.bookmark.url.split( '/' )[2]
+      ), 'name'
 
-      url = scope.bookmark.url.split( '/' )
-      siteName = url[2]
+    element.bind 'mouseenter', (event) ->
+      element.addClass('no-frames-allowed') if isFrameNotAllowed
+      element.bind 'mouseleave', (event) ->
+        element.removeClass('no-frames-allowed')
 
-      if _.result _.find(sites
-        'name': siteName
-        ), 'name'
-        return element.addClass('no-frames-allowed')
+    element.bind 'click', (event) ->
+      return window.open scope.bookmark.url,'_blank' if isFrameNotAllowed
+      scope.showView(scope.bookmark.url)
 
 app.directive 'visited', ->
   link: (scope, element, attrs) ->
@@ -70,6 +61,7 @@ app.controller 'MainCtrl', ['$sce', '$scope' ($sce, $scope) ->
 
   $scope.showView = (url) ->
     $scope.viewUrl = url
+    $scope.$apply()
 
   chrome.bookmarks.getRecent 1000, (data) ->
     $scope.bookmarks = data

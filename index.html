@@ -13,7 +13,7 @@
           <input id="search" type="search" ng-model="search" placeholder="Type here to filter">
         </div>
         <section id="bookmarks">
-          <li ng-repeat="bookmark in bookmarks | filter:search" class="bookmark"><a check-url ng-model="bookmark.url" visited ng-src="#" ng-click="showView(bookmark.url)" class="link"><span ng-bind="bookmark.title" class="title"></span><span ng-bind="bookmark.url" class="url"></span></a></li>
+          <li ng-repeat="bookmark in bookmarks | filter:search" class="bookmark"><a check-url ng-model="bookmark.url" visited ng-src="#" class="link"><span ng-bind="bookmark.title" class="title"></span><span ng-bind="bookmark.url" class="url"></span></a></li>
         </section>
       </div>
       <div class="column column-main">
@@ -27,7 +27,6 @@
       </div>
     </div>
     <script type="text/javascript" src="app/scripts/vendor/angular/angular.js"></script>
-    <script type="text/javascript" src="app/scripts/vendor/ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="app/scripts/vendor/lodash/lodash.js"></script>
     <script type="text/javascript" src="app/scripts/app.js"> </script>
   </body>

@@ -828,8 +828,16 @@ section#bookmarks li:first-child .url {
   color: rgba(64,82,175,0.333);
 }
 section#bookmarks a.no-frames-allowed:after {
-  content: "Frames are not allowed on this host";
-  color: #f00;
+  -webkit-animation: fadeIn 200ms;
+  -ms-animation: fadeIn 200ms;
+  animation: fadeIn 200ms;
+  font-size: 0.8rem;
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
+  content: "We can't show a view of this website, click to open in a new window.";
+  color: RGBA(254, 188, 78, 1);
 }
 section#bookmarks span {
   display: block;
@@ -851,6 +859,32 @@ section#bookmarks .url {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    -webkit-filter: none;
+            filter: none;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    -webkit-filter: none;
+            filter: none;
+  }
 }
 #mainSearch {
   position: relative;
