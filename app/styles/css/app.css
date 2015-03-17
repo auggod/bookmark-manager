@@ -672,7 +672,7 @@ typeahead {
   height: auto;
 }
 .column-main {
-  background: #333;
+  background: #fff;
 }
 @media (min-width: 768px) {
   .app-body {
@@ -837,7 +837,7 @@ section#bookmarks a.no-frames-allowed:after {
   -ms-filter: none;
   -webkit-filter: none;
           filter: none;
-  content: "We can't show a view of this website, click to open in a new window.";
+  content: "This website doesn't allow us to open in a frame, click to open in a new window.";
   color: RGBA(254, 188, 78, 1);
 }
 section#bookmarks span {

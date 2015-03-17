@@ -34,6 +34,8 @@
             'name': 'stackoverflow.com'
           }, {
             'name': 'programmers.stackexchange.com'
+          }, {
+            'name': 'medium.com'
           }
         ];
         isFrameNotAllowed = _.result(_.find(sites, {

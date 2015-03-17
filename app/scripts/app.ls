@@ -30,6 +30,7 @@ app.directive 'checkUrl' ->
       {'name':'github.com'}
       {'name':'stackoverflow.com'}
       {'name':'programmers.stackexchange.com'}
+      {'name':'medium.com'}
     ]
     #Inform user that frames are not allowed for a given url
     isFrameNotAllowed =  _.result _.find(sites

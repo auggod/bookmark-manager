@@ -1,8 +1,13 @@
-gulp = require('gulp')
-jade = require('gulp-jade')
-stylus = require('gulp-stylus')
-autoprefixer = require('autoprefixer-stylus')
-nib = require('nib')
+require! {
+  "gulp"
+  "gulp-jade": jade
+  "gulp-stylus": stylus
+  "gulp-livereload": livereload
+  "autoprefixer-stylus": autoprefixer
+  "gulp-minify-css": minifyCSS
+  "gulp-uglify": uglify
+  "nib"
+}
 
 gulp.task 'templates', ->
   gulp.src('./**/*.jade')
@@ -20,26 +25,27 @@ gulp.task 'stylus', ->
     ]) 
   ])).pipe(gulp.dest('./app/styles/css'))
 
-gulp.task 'compress', ->
-  gulp.src(['./app/styles/stylus/app.styl', './public/styles/stylus/login.styl']).pipe(stylus(
-    use: [
-      nib()
-      autoprefixer(browsers: [
-        'iOS >= 7'
-        'Chrome >= 36'
-        'Firefox >= 30'
-      ])   
-    ]
-    compress: true)).pipe gulp.dest('./app/dist')
+# Minify CSS
+gulp.task 'minify-css', ->
+  gulp.src './src/css/app.css'
+    .pipe minifyCSS!
+    .pipe gulp.dest './app/dist/css'
+
+# Minify javascripts
+gulp.task 'uglify', ->
+  gulp.src './app/scripts/app.js'
+    .pipe uglify({mangle:false})
+    .pipe gulp.dest './app/dist'
 
 gulp.task 'watch', ->
-  gulp.watch('./**/*.jade',['templates']);
-  gulp.watch('./app/styles/**/*.styl',['stylus', 'compress'])
+  gulp.watch('./**/*.jade', ['templates'])
+  gulp.watch('./app/styles/**/*.styl', ['stylus'])
+  gulp.watch './app/styles/css/*.css', ['minify-css']
+  gulp.watch './app/scripts/app.js', ['uglify']
 
-# Default Task
 gulp.task 'default', [
+  'uglify'
   'stylus'
-  'compress'
   'templates'
   'watch'
 ]
