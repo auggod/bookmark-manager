@@ -17,6 +17,9 @@
         </section>
       </div>
       <div class="column column-main">
+        <div ng-if="viewUrl">
+          <div class="openWebsite"><a ng-href="{{trustSrc(viewUrl)}}" target="_blank" class="btn btn-success">Open in a new tab</a></div>
+        </div>
         <div class="app-wrapper">
           <div class="app-wrapper-inner">
             <div ng-if="viewUrl">

@@ -16,10 +16,14 @@ html(ng-app="BookmarksManagerApp" lang="en" ng-csp)
               span.title(ng-bind="bookmark.title")
               span.url(ng-bind="bookmark.url")
       .column.column-main
+        div(ng-if="viewUrl")
+          .openWebsite
+            a.btn.btn-success(ng-href="{{trustSrc(viewUrl)}}", target="_blank") Open in a new tab
         .app-wrapper
           .app-wrapper-inner
             div(ng-if="viewUrl")
               iframe(ng-src="{{trustSrc(viewUrl)}}" style="width:100%;height:100vh;")
+
     script(type="text/javascript", src="app/scripts/vendor/angular/angular.js")
     script(type="text/javascript", src="app/scripts/vendor/lodash/lodash.js")
     script(type="text/javascript", src="app/scripts/app.js") 

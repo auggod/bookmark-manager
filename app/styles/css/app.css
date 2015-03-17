@@ -294,7 +294,7 @@ input::-moz-focus-inner {
 button,
 input[type="button"],
 input[type="submit"],
-a.btn {
+.btn {
   background: #ccc;
   color: #000;
   font-weight: normal;
@@ -716,7 +716,7 @@ typeahead {
   .app-wrapper-inner {
     -webkit-flex: 1;
             flex: 1;
-    height: calc(100vh);
+    height: 100%;
   }
   .content-body {
     -webkit-flex: 1;
@@ -734,7 +734,8 @@ typeahead {
     height: auto;
   }
 }
-.top-bar {
+.top-bar,
+.bottom-bar {
   background: RGBA(64, 82, 175, 0.9);
   height: 60px;
   -webkit-flex: 1;
@@ -899,6 +900,14 @@ input#search {
 }
 input#search::-webkit-input-placeholder {
   color: rgba(255,255,255,0.5);
+}
+.openWebsite {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.btn {
+  margin: 0;
 }
 @-webkit-keyframes slideFromTop {
   0% {
