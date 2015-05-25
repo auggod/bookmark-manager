@@ -8,7 +8,6 @@
     while (i >= 0) {
       header = headers[i].name.toLowerCase();
       if (header === 'x-frame-options' || header === 'frame-options') {
-        console.log('removed x-frame-options');
         headers.splice(i, 1);
       }
       --i;
@@ -25,45 +24,44 @@
     return $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
   });
   app.directive('checkUrl', function(){
-    return {
-      link: function(scope, element, attrs){
-        var sites, isFrameNotAllowed;
-        sites = [
-          {
-            'name': 'github.com'
-          }, {
-            'name': 'stackoverflow.com'
-          }, {
-            'name': 'programmers.stackexchange.com'
-          }, {
-            'name': 'medium.com'
-          }
-        ];
-        isFrameNotAllowed = _.result(_.find(sites, {
-          'name': scope.bookmark.url.split('/')[2]
-        }), 'name');
-        element.bind('mouseenter', function(event){
-          if (isFrameNotAllowed) {
-            element.addClass('no-frames-allowed');
-          }
-          return element.bind('mouseleave', function(event){
-            return element.removeClass('no-frames-allowed');
-          });
+    return function(scope, element, attrs){
+      var sites, isFrameNotAllowed;
+      sites = [
+        {
+          name: 'github.com'
+        }, {
+          name: 'stackoverflow.com'
+        }, {
+          name: 'programmers.stackexchange.com'
+        }, {
+          name: 'medium.com'
+        }
+      ];
+      isFrameNotAllowed = _.result(_.find(sites, {
+        'name': scope.bookmark.url.split('/')[2]
+      }), 'name');
+      element.bind('mouseenter', function(event){
+        if (isFrameNotAllowed) {
+          element.addClass('no-frames-allowed');
+        }
+        return element.bind('mouseleave', function(event){
+          return element.removeClass('no-frames-allowed');
         });
-        return element.bind('click', function(event){
-          return scope.showView(scope.bookmark.url);
-        });
-      }
+      });
+      return element.bind('click', function(event){
+        if (isFrameNotAllowed) {
+          return window.open(scope.bookmark.url, '_blank');
+        }
+        return scope.showView(scope.bookmark.url);
+      });
     };
   });
   app.directive('visited', function(){
-    return {
-      link: function(scope, element, attrs){
-        return element.bind('click', function(event){
-          event.preventDefault();
-          return element.addClass('visited');
-        });
-      }
+    return function(scope, element, attrs){
+      return element.bind('click', function(event){
+        event.preventDefault();
+        return element.addClass('visited');
+      });
     };
   });
   app.controller('MainCtrl', [

@@ -10,9 +10,8 @@ require! {
 }
 
 gulp.task 'templates', ->
-  gulp.src('./**/*.jade')
-    .pipe jade do
-      pretty: true
+  gulp.src './**/*.jade'
+    .pipe jade pretty: true
     .pipe gulp.dest '.'
 
 gulp.task 'stylus', ->

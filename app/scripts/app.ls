@@ -4,7 +4,6 @@ chrome.webRequest.onHeadersReceived.addListener ((info) ->
   while i >= 0
     header = headers[i].name.toLowerCase()
     if header == 'x-frame-options' or header == 'frame-options'
-      console .log 'removed x-frame-options'
       headers.splice i, 1
       # Remove header
     --i
@@ -24,14 +23,14 @@ app.config ($compileProvider) ->
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/)
 
 app.directive 'checkUrl' ->
-  link: (scope, element, attrs) ->
+  (scope, element, attrs) ->
 
     #Frames are not allowed on these websites
     sites = [
-      {'name':'github.com'}
-      {'name':'stackoverflow.com'}
-      {'name':'programmers.stackexchange.com'}
-      {'name':'medium.com'}
+      * name: 'github.com'
+      * name: 'stackoverflow.com'
+      * name: 'programmers.stackexchange.com'
+      * name: 'medium.com'
     ]
 
     isFrameNotAllowed =  _.result _.find(sites
@@ -44,11 +43,11 @@ app.directive 'checkUrl' ->
         element.removeClass('no-frames-allowed')
 
     element.bind 'click', (event) ->
-      #return window.open scope.bookmark.url,'_blank' if isFrameNotAllowed
+      return window.open scope.bookmark.url,'_blank' if isFrameNotAllowed
       scope.showView(scope.bookmark.url)
 
 app.directive 'visited', ->
-  link: (scope, element, attrs) ->
+  (scope, element, attrs) ->
     element.bind 'click', (event) ->
       event.preventDefault()
       element.addClass('visited')

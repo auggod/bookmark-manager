@@ -1,5 +1,4 @@
-console.log 'yet'
-
+/*
 prevent_bust = 0
 
 window.onbeforeunload = ->
@@ -10,3 +9,4 @@ setInterval (->
     prevent_bust -= 2
     window.top.location = 'http://null.localhost/'
 ), 1
+*/
